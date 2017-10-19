@@ -82,7 +82,7 @@
                     Laravel
                 </div>
 
-		        <h1>hello from homestead VM!!</h1>
+		        <h1>hello from homestead VM</h1>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
