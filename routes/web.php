@@ -12,7 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome', [
+//        'name' => 'World'
+//    ]);
+//    ***or as 2variant:****
+//    return view('welcome')->with('name', 'World');
+//    ***or as 3 variant:****
+//    $name = 'Max';
+//    return view('welcome', compact('name'));
+    $tasks = [
+        'Go to the store',
+        'Finish my screencast',
+        'Clean the house'
+    ];
+    return view('welcome', compact('tasks'));
 });
 
 Route::get('/about', function () {
