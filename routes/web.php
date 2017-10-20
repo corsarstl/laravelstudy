@@ -14,7 +14,13 @@
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
 
-Route::get('/about', function () {
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
 
-    return view('about');
-});
+// controller - PostsController     =>  php artisan make:controller PostsController
+// Eloquent model - Post            =>  php artisan make:model Post
+// migration - create_posts_table   =>  php artisan make:migration create_posts_table --create=posts
+
+// ***or in 1 command***
+// php artisan make:model Post -mc
+
