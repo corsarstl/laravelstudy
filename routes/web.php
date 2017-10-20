@@ -12,13 +12,17 @@
 */
 
 Route::get('/tasks', function () {
-    $tasks = DB::table('tasks')->get();
+//    $tasks = DB::table('tasks')->get();
+    $tasks = App\Task::all();
 
     return view('tasks.index', compact('tasks'));
 });
 
 Route::get('/tasks/{task}', function ($id) {
-    $task = DB::table('tasks')->find($id);
+//    $task = DB::table('tasks')->find($id);
+    $task = App\Task::find($id);
+    App\Task::incomplete();
+
 
     return view('tasks.show', compact('task'));
 });
