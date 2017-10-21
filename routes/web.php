@@ -19,6 +19,8 @@ Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+
 // controller - PostsController     =>  php artisan make:controller PostsController
 // Eloquent model - Post            =>  php artisan make:model Post
 // migration - create_posts_table   =>  php artisan make:migration create_posts_table --create=posts
