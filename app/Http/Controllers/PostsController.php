@@ -53,11 +53,16 @@ class PostsController extends Controller
             'body'  => 'required'
         ]);
 
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
+/*
         Post::create([
             'title'     => request('title'),
             'body'      => request('body'),
             'user_id'   => auth()->id()
         ]);
+*/
 
         // redirect to the home page
         return redirect('/');
