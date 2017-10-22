@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Welcome;
-use App\User;
+use App\Http\Requests\RegistrationForm;
 
 class RegistrationController extends Controller
 {
@@ -12,26 +11,17 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
 
-    public function store()
+    public function store(RegistrationForm $form)
     {
         // validate the form
-        $this->validate(request(), [
-            'name' => 'required|unique:users',
-            'email' => 'required|unique:users|email',
-            'password' => 'required|min:8|confirmed',
-        ]);
+        // the simple way
+//        $this->validate(request(), [
+//            'name' => 'required|unique:users',
+//            'email' => 'required|unique:users|email',
+//            'password' => 'required|min:8|confirmed'
+//        ]);
+        $form->persist();
 
-        // create and save the user
-        $user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password'))
-        ]);
-
-        // sing user in
-        auth()->login($user);
-
-        \Mail::to($user)->send(new Welcome($user));
 
         // redirect to the home page
         return redirect()->home();
