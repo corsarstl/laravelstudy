@@ -14,6 +14,19 @@
 //Route::get('/tasks', 'TasksController@index');
 //Route::get('/tasks/{task}', 'TasksController@show');
 
+App::bind('App\Billing\Stripe', function () {
+    return new \App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+$stripe = App::make('App\Billing\Stripe');
+// or the another variants:
+//$stripe = resolve('App\Billing\Stripe');
+//$stripe = app('App\Billing\Stripe');
+
+dd($stripe);
+
+
+
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
