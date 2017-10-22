@@ -16,12 +16,12 @@
 
 
 
-$stripe = App::make('App\Billing\Stripe');
+//$stripe = App::make('App\Billing\Stripe');
 // or the another variants:
 //$stripe = resolve('App\Billing\Stripe');
 //$stripe = app('App\Billing\Stripe');
 
-dd($stripe);
+//dd($stripe);
 
 
 
